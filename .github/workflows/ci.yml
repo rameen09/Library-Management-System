@@ -20,6 +20,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Download self-contained SQLite JDBC driver
+        run: curl -L -o lib/sqlite-jdbc.jar https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.44.1.0/sqlite-jdbc-3.44.1.0.jar
+
       - name: Compile main source
         run: javac -cp "lib/sqlite-jdbc.jar" -d build src/main/java/library/*.java
 
